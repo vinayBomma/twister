@@ -5,6 +5,17 @@
       <v-toolbar-title>Test</v-toolbar-title>
       <v-spacer></v-spacer>
 
+      <v-menu offset-y transition="scale-transition">
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" flat>Language</v-btn>
+        </template>
+        <v-list>
+          <v-list-tile v-for="(item,index) in languages" v-bind:key="index">
+            <v-list-tile-title>{{ item }}</v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+
       <v-icon>wb_sunny</v-icon>
       <span>
         <v-switch class="pt-3 pl-3"></v-switch>
@@ -22,18 +33,6 @@
             <v-list-tile-title>{{ link.text }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-
-        <!-- <v-list-tile>
-          <v-list-tile-action>
-            <v-icon>wb_sunny</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-switch></v-switch>
-          </v-list-tile-content>
-          <v-list-tile-action>
-            <v-icon>wb_sunny</v-icon>
-          </v-list-tile-action>
-        </v-list-tile> -->
       </v-list>
     </v-navigation-drawer>
   </nav>
@@ -47,10 +46,10 @@ export default {
       links: [
         { icon: "home", text: "Home", route: "/" },
         { icon: "info", text: "About", route: "/about" },
-        { icon: "feedback", text: "Feedback", route: "/feedback" }
-        // { icon: "contact", text: "Home", route: "/" },
-        // { icon: "contact", text: "Home", route: "/" },
-      ]
+        { icon: "feedback", text: "Feedback", route: "/feedback" },
+        { icon: "settings", text: "Settings", route: "/settings" },
+      ],
+      languages: ['English', 'French', 'Spanish', 'Irish', 'Italian']
     };
   }
 };
