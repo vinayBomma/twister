@@ -10,8 +10,8 @@
           <v-btn v-on="on" flat>Language</v-btn>
         </template>
         <v-list>
-          <v-list-tile v-for="(item,index) in languages" v-bind:key="index">
-            <v-list-tile-title>{{ item }}</v-list-tile-title>
+          <v-list-tile v-for="lang in languages" v-bind:key="lang.text" router v-bind:to="lang.route">
+            <v-list-tile-title>{{ lang.text }}</v-list-tile-title>
           </v-list-tile>
         </v-list>
       </v-menu>
@@ -49,7 +49,13 @@ export default {
         { icon: "feedback", text: "Feedback", route: "/feedback" },
         { icon: "settings", text: "Settings", route: "/settings" },
       ],
-      languages: ['English', 'French', 'Spanish', 'Irish', 'Italian']
+      languages: [
+        { text:'English', route:'/'}, 
+        { text:'French', route: '/french'}, 
+        { text:'Spanish', route: '/spanish'}, 
+        { text:'Irish', route: '/irish'}, 
+        { text:'Italian', route: '/italian'}
+        ]
     };
   }
 };
