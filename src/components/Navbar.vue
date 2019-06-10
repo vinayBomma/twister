@@ -2,7 +2,7 @@
   <nav>
     <v-toolbar flat app>
       <v-toolbar-side-icon v-on:click="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Test</v-toolbar-title>
+      <!-- <v-toolbar-title>Test</v-toolbar-title> -->
       <v-spacer></v-spacer>
 
       <v-menu offset-y transition="scale-transition">
@@ -50,7 +50,7 @@ export default {
         { icon: "settings", text: "Settings", route: "/settings" },
       ],
       languages: [
-        { text:'English', route:'/'}, 
+        { text:'English', route: '/'},
         { text:'French', route: '/french'}, 
         { text:'Spanish', route: '/spanish'}, 
         { text:'Irish', route: '/irish'}, 

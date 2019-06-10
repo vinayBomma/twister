@@ -8,17 +8,17 @@
           </v-card>
         </v-flex>
       </v-layout>
+      <v-btn class="orange" v-on:click="retData()">Load More</v-btn>
     </v-container>
   </div>
 </template>
 
 <script>
+let counter = 2;
 import db from '../firebase/init'
+import { functions } from 'firebase';
 // import hello from '!raw-loader!../assets/English.txt'
 export default {
-  components: {
-
-  },
   data () {
     return {
       contents: [],
@@ -32,29 +32,33 @@ export default {
   },
   methods: {
     randomColor: function(){
-      this.cardColor = "teal darken-4"
       this.cardColor = this.colors[Math.floor(Math.random() * this.colors.length)];
-    }
-  },
-  created(){
-    db.collection('language').doc('test').get()
+    },
+    retData: function(){
+      db.collection('language').doc('english').get()
       .then(doc => {
-        let content = doc.data().content.slice(0,5)
+        counter += 2
+        let content = doc.data().content.slice(0,counter)
         content.id = doc.id
         // console.log(content.content)
         this.contents = content
+        counter = this.contents.length
       }).catch(err => {
         console.log('Errarta')
       })
-    
-    // console.log(db.collection('langauge').orderBy('content'))
-    // .then(snapshot => {
-    //   snapshot.forEach(doc => {
-    //     let content = doc.data()
-    //     content.id = doc.idc
-    //     this.contents = (content.text)
-    //   })
-    // })
+    }
+  },
+  created(){
+    db.collection('language').doc('english').get()
+      .then(doc => {
+        let content = doc.data().content.slice(0,2)
+        content.id = doc.id
+        // console.log(content.content)
+        this.contents = content
+        counter = this.contents.length
+      }).catch(err => {
+        console.log('Errarta')
+      })
   }
 };
 
@@ -82,5 +86,4 @@ export default {
 // let setDoc = db.collection('language').doc('test').set({
 //   content: some
 // })
-
 </script>
