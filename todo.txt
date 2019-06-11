@@ -1,4 +1,2 @@
-card random color
-lang menu links
 night mode ui
 toolbar ui redesign
