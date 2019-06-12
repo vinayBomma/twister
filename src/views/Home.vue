@@ -26,7 +26,7 @@ export default {
         "cyan darken-1",
         "blue lighten-1",
         "green accent-4",
-        "teal accent-3",
+        "teal darken-1",
       ],
       cardColor: "",
       domData: false
@@ -45,7 +45,7 @@ export default {
         this.contents = content
         counter = this.contents.length
       }).catch(err => {
-        console.log('Errarta')
+        console.log('Errarta ', err)
       })
     }
   },

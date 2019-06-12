@@ -1,2 +1,4 @@
 night mode ui
 toolbar ui redesign
+unselect text,icon
+navigation contrast 

@@ -1,7 +1,6 @@
 <template>
-  <v-app>
-    <Navbar></Navbar>
-
+  <v-app v-bind:dark="nightMode">
+    <Navbar v-on:switchMode="updateMode($event)"></Navbar>
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -11,18 +10,21 @@
 
 <script>
 import Navbar from "./components/Navbar";
-import Home from "./views/Home"
 
 export default {
   name: "App",
   components: {
     Navbar,
-    Home
   },
   data() {
     return {
-      //
+      nightMode: null,
     };
+  },
+  methods:{
+    updateMode: function(mode){
+      this.nightMode = mode
+    }
   }
 };
 </script>
