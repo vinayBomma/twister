@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  props: ['dark'],
+  props: ["dark"],
   data() {
     return {
       drawer: false,
@@ -66,9 +66,9 @@ export default {
     };
   },
   methods: {
-    switchMode: function(){
-      this.nightMode = !(this.nightMode)
-      this.$emit('switchMode', this.nightMode)
+    switchMode: function() {
+      this.nightMode = !this.nightMode;
+      this.$emit("switchMode", this.nightMode);
     }
   }
 };

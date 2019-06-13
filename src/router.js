@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+
+import English from './views/English.vue'
 import About from './views/About.vue'
 import Feedback from './views/Feedback.vue'
+import French from './views/French.vue'
 
 Vue.use(Router)
 
@@ -11,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'english',
+      component: English
     },
     {
       path: '/about',
@@ -23,6 +25,11 @@ export default new Router({
       path: '/feedback',
       name: 'feedback',
       component: Feedback
+    },
+    {
+      path: '/french',
+      name: 'french',
+      component: French
     }
   ]
 })
