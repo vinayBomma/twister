@@ -3,8 +3,10 @@
 </template>
 
 <script>
+// import db from "../firebase/init"
+
 import Layout from "../components/Layout"
-// import hello from '!raw-loader!../assets/French.txt'
+// import hello from '!raw-loader!../assets/German.txt'
 export default {
   components: {
     Layout
@@ -24,7 +26,7 @@ export default {
 // let test = hello.replace(/=========================/g, '')
 // let some = test.split('\n')
 // some.forEach(someFilter)
-// // some = some[Math.floor(Math.random() * some.length]
+// some = some[Math.floor(Math.random() * some.length)]
 
 // function someFilter(item, index){
 //   if (item == "\r"){
@@ -33,7 +35,7 @@ export default {
 // }
 // console.log(some)
 
-// db.collection('language').doc('french').set({
+// db.collection('language').doc('german').set({
 //   content: some
 // })
 </script>

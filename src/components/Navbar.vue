@@ -60,7 +60,8 @@ export default {
         { text: "French", route: "/french" },
         { text: "Spanish", route: "/spanish" },
         { text: "Irish", route: "/irish" },
-        { text: "Italian", route: "/italian" }
+        { text: "Italian", route: "/italian" },
+        { text: "German", route: "/german" }
       ],
       nightMode: false
     };

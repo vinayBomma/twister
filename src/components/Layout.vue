@@ -16,7 +16,8 @@
 </template>
 
 <script>
-let counter = 6;
+let twisterData = [],
+  i = 0;
 import db from "../firebase/init";
 
 export default {
@@ -30,7 +31,7 @@ export default {
         "teal darken-1"
       ],
       cardColor: "",
-      domData: false,
+      domData: false
     };
   },
   methods: {
@@ -44,30 +45,43 @@ export default {
         .doc(this.$route.name)
         .get()
         .then(doc => {
-          counter += 6;
-          let content = doc.data().content.slice(0, counter);
-          content.id = doc.id;
-          this.contents = content;
-          counter = this.contents.length;
+          (function randomTwister() {
+            let dbData = doc.data().content;
+
+            for (i = 0; i < 6; i++) {
+              let randomValue =
+                dbData[Math.floor(Math.random() * dbData.length)];
+              twisterData.push(randomValue);
+            }
+          })();
+          let retData = twisterData;
+          retData = this.contents.concat(twisterData);
+          twisterData = [];
+          this.contents = retData;
+          this.contents.id = doc.id;
         })
         .catch(err => {
           console.log("Errarta ", err);
         });
-    },
+    }
   },
   created() {
-
-    console.log('Route: ',this.$route.name)
-
     db.collection("language")
       .doc(this.$route.name)
       .get()
       .then(doc => {
-        let content = doc.data().content.slice(0, counter);
-        content.id = doc.id;
-        this.contents = content;
+        (function randomTwister() {
+          let dbData = doc.data().content;
+
+          for (i = 0; i < 6; i++) {
+            let randomValue = dbData[Math.floor(Math.random() * dbData.length)];
+            twisterData.push(randomValue);
+          }
+        })();
+        this.contents = twisterData;
+        this.contents.id = doc.id;
+        twisterData = [];
         this.domData = true;
-        counter = this.contents.length;
       })
       .catch(err => {
         console.log("Errarta: ", err);

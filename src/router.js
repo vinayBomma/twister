@@ -5,6 +5,7 @@ import English from './views/English.vue'
 import About from './views/About.vue'
 import Feedback from './views/Feedback.vue'
 import French from './views/French.vue'
+import German from './views/German.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/french',
       name: 'french',
       component: French
-    }
+    },
+    {
+      path: '/german',
+      name: 'german',
+      component: German
+    },
   ]
 })
