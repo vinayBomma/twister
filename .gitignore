@@ -6,6 +6,13 @@ node_modules
 
 /src/firebase
 
+firestore.rules
+firebase.json
+firestore.indexes.json
+.firebase/
+.firebaserc
+
+
 # local env files
 .env.local
 .env.*.local

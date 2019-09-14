@@ -5,7 +5,8 @@
 <script>
 // import db from "../firebase/init"
 
-import Layout from "../components/Layout"
+const Layout = () => import('../components/Layout')
+// import Layout from "../components/Layout"
 // import hello from '!raw-loader!../assets/German.txt'
 export default {
   components: {

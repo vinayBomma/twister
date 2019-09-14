@@ -19,23 +19,26 @@
             <v-icon>{{ link.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title class="grey--text">{{ link.text }}</v-list-tile-title>
+            <v-list-tile-title>{{ link.text }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
 
         <v-list-group no-action prepend-icon="language">
           <template v-slot:activator>
             <v-list-tile>
-              <v-list-tile-title class="grey--text">Languages</v-list-tile-title>
+              <v-list-tile-title>Languages</v-list-tile-title>
             </v-list-tile>
           </template>
+          <v-list-tile>
+            <v-text-field v-model="searchText" @keyup="langSearch()" placeholder="Search"></v-text-field>
+          </v-list-tile>
           <v-list-tile
             v-for="(language, index) in languages"
             :key="index"
             router
             v-bind:to="language.route"
           >
-            <v-list-tile-title class="grey--text" v-text="language.text"></v-list-tile-title>
+            <v-list-tile-title v-text="language.text"></v-list-tile-title>
           </v-list-tile>
         </v-list-group>
       </v-list>
@@ -63,13 +66,47 @@ export default {
         { text: "Italian", route: "/italian" },
         { text: "German", route: "/german" }
       ],
-      nightMode: false
+      nightMode: false,
+      searchText: "",
+      searched: []
     };
   },
   methods: {
     switchMode: function() {
       this.nightMode = !this.nightMode;
       this.$emit("switchMode", this.nightMode);
+    },
+    langSearch() {
+      if (this.searchText.toLowerCase() !== "") {
+        for (let i = 0; i < this.languages.length; i++) {
+          if (
+            this.languages[i].text
+              .toLowerCase()
+              .includes(this.searchText.toLowerCase())
+          ) {
+            console.log("if: ", this.searched);
+            if (!this.searched.includes(this.languages[i].text)) {
+              // this.searched.splice(this.searched.indexOf(this.languages[i].text), 1)
+              this.searched.push(this.languages[i].text);
+            }
+          } else if (
+            !this.languages[i].text
+              .toLowerCase()
+              .includes(this.searchText.toLowerCase())
+          ) {
+            console.log("else: ", this.searched);
+            if (this.searched.includes(this.languages[i].text)) {
+              this.searched.splice(
+                this.searched.indexOf(this.languages[i].text),
+                1
+              );
+            }
+          }
+        }
+      } else if (this.searchText.toLowerCase() === "") {
+        this.searched = [];
+      }
+      console.log(this.searched);
     }
   }
 };

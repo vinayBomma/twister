@@ -8,7 +8,8 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar";
+const Navbar = () => import('./components/Navbar')
+// import Navbar from "./components/Navbar";
 export default {
   name: "App",
   components: {
@@ -16,7 +17,7 @@ export default {
   },
   data() {
     return {
-      nightMode: null
+      nightMode: true
     };
   },
   methods: {
