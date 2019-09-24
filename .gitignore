@@ -12,6 +12,9 @@ firestore.indexes.json
 .firebase/
 .firebaserc
 
+*.png
+*.svg
+
 
 # local env files
 .env.local

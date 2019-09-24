@@ -1,0 +1,22 @@
+{
+    "short_name": "Twister",
+    "name": "Twister",
+    "orientation": "portrait",
+    "description": "Twister is a tongue twister app with content in more than 100 languages.",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/"
+  }

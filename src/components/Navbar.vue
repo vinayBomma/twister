@@ -5,11 +5,11 @@
       <!-- <v-toolbar-title>Test</v-toolbar-title> -->
       <v-spacer></v-spacer>
 
-      <v-icon color="orange lighten-1">wb_sunny</v-icon>
+      <!-- <v-icon color="orange lighten-1">wb_sunny</v-icon>
       <span>
         <v-switch class="pt-3 pl-3" v-on:click="switchMode"></v-switch>
       </span>
-      <v-icon color="blue lighten-2">brightness_3</v-icon>
+      <v-icon color="blue lighten-2">brightness_3</v-icon>-->
     </v-toolbar>
 
     <v-navigation-drawer v-model="drawer" app>
@@ -56,6 +56,7 @@ export default {
         { icon: "home", text: "Home", route: "/" },
         { icon: "info", text: "About", route: "/about" },
         { icon: "feedback", text: "Feedback", route: "/feedback" },
+        { icon: "assignment", text: "Privacy Policy", route: "/privacypolicy" },
         { icon: "settings", text: "Settings", route: "/settings" }
       ],
       languages: [
@@ -68,7 +69,8 @@ export default {
       ],
       nightMode: false,
       searchText: "",
-      searched: []
+      allLanguages: [],
+      defLang: []
     };
   },
   methods: {
@@ -78,36 +80,23 @@ export default {
     },
     langSearch() {
       if (this.searchText.toLowerCase() !== "") {
-        for (let i = 0; i < this.languages.length; i++) {
+        this.defLang = this.languages.concat();
+        for (let i = 0; i < this.defLang.length; i++) {
           if (
-            this.languages[i].text
-              .toLowerCase()
-              .includes(this.searchText.toLowerCase())
+            !(((this.defLang[i].text)
+              .toLowerCase())
+              .includes(this.searchText.toLowerCase()))
           ) {
-            console.log("if: ", this.searched);
-            if (!this.searched.includes(this.languages[i].text)) {
-              // this.searched.splice(this.searched.indexOf(this.languages[i].text), 1)
-              this.searched.push(this.languages[i].text);
-            }
-          } else if (
-            !this.languages[i].text
-              .toLowerCase()
-              .includes(this.searchText.toLowerCase())
-          ) {
-            console.log("else: ", this.searched);
-            if (this.searched.includes(this.languages[i].text)) {
-              this.searched.splice(
-                this.searched.indexOf(this.languages[i].text),
-                1
-              );
-            }
+            this.languages.splice(this.languages.indexOf(this.defLang[i]), 1);
           }
         }
-      } else if (this.searchText.toLowerCase() === "") {
-        this.searched = [];
+      } else if ((this.searchText).toLowerCase() === "") {
+        this.languages = this.allLanguages.concat();
       }
-      console.log(this.searched);
     }
+  },
+  created() {
+    this.allLanguages = this.languages.concat();
   }
 };
 </script>

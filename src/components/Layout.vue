@@ -18,7 +18,7 @@
           </v-card>
         </v-flex>
       </v-layout>
-      <v-btn class="blue darken-1" v-on:click="retrieveData()" v-show="domData" block>Load More</v-btn>
+      <v-btn style="background: linear-gradient(to right, #000000, #434343);" v-on:click="retrieveData()" v-show="domData" block>Load More</v-btn>
     </v-container>
 
     <v-dialog v-model="loading" persistent full-width>

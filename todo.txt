@@ -4,3 +4,4 @@ navigation contrast
 subheading lang.vue capital this.route.name
 bookmark twists 
 report twists
+offline persistence
