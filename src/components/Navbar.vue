@@ -55,9 +55,9 @@ export default {
       links: [
         { icon: "home", text: "Home", route: "/" },
         { icon: "info", text: "About", route: "/about" },
-        { icon: "feedback", text: "Feedback", route: "/feedback" },
+        // { icon: "feedback", text: "Feedback", route: "/feedback" },
         { icon: "assignment", text: "Privacy Policy", route: "/privacypolicy" },
-        { icon: "settings", text: "Settings", route: "/settings" }
+        // { icon: "settings", text: "Settings", route: "/settings" }
       ],
       languages: [
         { text: "English", route: "/" },

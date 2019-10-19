@@ -1,7 +1,7 @@
 <template>
   <section>
     <v-container>
-      <!-- <h1 class="subheading">{{ router.name }}</h1> -->
+      <!-- <h1 class="subheading white--text">{{ ($route.name).toUpperCase() }}</h1> -->
       <v-layout row wrap>
         <v-flex xs12 sm6 md4 pa-3 v-for="(i, j) in contents" v-bind:key="j">
           <v-card :style="cardColor[j]">
@@ -49,10 +49,6 @@ export default {
       contents: [],
       twisterData: [],
       colors: [
-        // "cyan darken-1",
-        // "blue lighten-1",
-        // "green accent-4",
-        // "teal darken-1",
         "background-image: linear-gradient( 111.8deg,  rgba(0,104,155,1) 19.8%, rgba(0,173,239,1) 92.1% );",
         "background-image: linear-gradient( 105.2deg,  rgba(255,78,78,1) 11.2%, rgba(253,176,71,1) 117.9% );",
         "background-image: linear-gradient( 69.5deg,  rgba(40,48,68,1) 2.3%, rgba(1,179,201,1) 97.6% );",
