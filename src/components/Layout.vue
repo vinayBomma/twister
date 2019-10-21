@@ -18,7 +18,12 @@
           </v-card>
         </v-flex>
       </v-layout>
-      <v-btn style="background: linear-gradient(to right, #000000, #434343);" v-on:click="retrieveData()" v-show="domData" block>Load More</v-btn>
+      <v-btn
+        style="background: linear-gradient(to right, #000000, #434343);"
+        v-on:click="retrieveData()"
+        v-show="domData"
+        block
+      >Load More</v-btn>
     </v-container>
 
     <v-dialog v-model="loading" persistent full-width>
@@ -35,7 +40,7 @@
 </template>
 
 <script>
-import db from "../firebase/init";
+import { db } from "../firebase/init";
 
 import "epic-spinners/dist/lib/epic-spinners.min.css";
 import FingerprintSpinner from "epic-spinners/src/components/lib/FingerprintSpinner";

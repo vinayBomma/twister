@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Layout from "../components/Layout"
+const Layout = () => import('../components/Layout')
 export default {
   components: {
     Layout
