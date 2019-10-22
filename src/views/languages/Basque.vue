@@ -3,7 +3,7 @@
 </template>
 
 <script>
-const Layout = () => import('../components/Layout')
+const Layout = () => import('../../components/Layout.vue')
 export default {
   components: {
     Layout

@@ -3,6 +3,3 @@ subheading lang.vue capital this.route.name
 bookmark twists 
 report twists
 more langs
-twa config
-cron job
-axios two endpoints, one cronjob, other for enabling notifications

@@ -61,9 +61,6 @@
 </template>
 
 <script>
-import {db} from '../firebase/init'
-import firebase from 'firebase'
-
 import axios from 'axios'
 import { messaging } from '../firebase/init'
 
@@ -85,8 +82,35 @@ export default {
         { text: "French", route: "/french" },
         { text: "Spanish", route: "/spanish" },
         { text: "German", route: "/german" },
-        { text: "Irish", route: "/irish" },
+        { text: "Dutch", route: "/dutch" },
+        { text: "Portuguese", route: "/portuguese" },
+        { text: "Finnish", route: "/finnish" },
+        { text: "Catalan", route: "/catalan" },
         { text: "Italian", route: "/italian" },
+        { text: "Czech", route: "/czech" },
+        { text: "Norwegian", route: "/norwegian" },
+        { text: "Hungarian", route: "/hungarian" },
+        { text: "Uzbek", route: "/uzbek" },
+
+        { text: "Afrikaans", route: "/afrikaans" },
+        { text: "Arabic", route: "/arabic" },
+        { text: "Basque", route: "/basque" },
+        { text: "Croatian", route: "/croatian" },
+        { text: "Danish", route: "/danish" },
+        { text: "Hebrew", route: "/hebrew" },
+        { text: "Hindi", route: "/hindi" },
+        { text: "Indonesian", route: "/indonesian" },
+        { text: "Irish", route: "/irish" },
+        { text: "Japanese", route: "/japanese" },
+        { text: "Jersey", route: "/jersey" },
+        { text: "Latin", route: "/latin" },
+        { text: "Polish", route: "/polish" },
+        { text: "Slovak", route: "/slovak" },
+        { text: "Swedish", route: "/swedish" },
+        { text: "Tagalog", route: "/tagalog" },
+        { text: "Tamil", route: "/tamil" },
+        { text: "Turkish", route: "/turkish" },
+        { text: "Urdu", route: "/urdu" },
       ],
       nightMode: false,
       searchText: "",
