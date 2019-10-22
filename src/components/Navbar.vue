@@ -2,7 +2,8 @@
   <nav>
     <v-toolbar flat app>
       <v-toolbar-side-icon v-on:click="drawer = !drawer"></v-toolbar-side-icon>
-      <!-- <v-toolbar-title>Test</v-toolbar-title> -->
+      <v-toolbar-title v-if="$route.name === 'PrivacyPolicy'">Privacy Policy</v-toolbar-title>
+      <v-toolbar-title  v-else>{{ ($route.name).charAt(0).toUpperCase() + ($route.name).slice(1) }}</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <!-- <v-icon color="orange lighten-1">wb_sunny</v-icon>
@@ -51,7 +52,7 @@
           </v-list-tile>
         </v-list-group>
 
-        <v-list-tile>
+        <v-list-tile v-if="!disabled">
           <v-btn @click="getMessagingToken" round block>Enable Notifications</v-btn>
         </v-list-tile>
       </v-list>
@@ -83,14 +84,15 @@ export default {
         { text: "English", route: "/" },
         { text: "French", route: "/french" },
         { text: "Spanish", route: "/spanish" },
+        { text: "German", route: "/german" },
         { text: "Irish", route: "/irish" },
         { text: "Italian", route: "/italian" },
-        { text: "German", route: "/german" }
       ],
       nightMode: false,
       searchText: "",
       allLanguages: [],
-      defLang: []
+      defLang: [],
+      disabled: false,
     };
   },
   methods: {

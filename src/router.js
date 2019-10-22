@@ -36,5 +36,10 @@ export default new Router({
       name: 'german',
       component: () => import('./views/German.vue')
     },
+    {
+      path: '/spanish',
+      name: 'spanish',
+      component: () => import('./views/Spanish.vue')
+    },
   ]
 })
