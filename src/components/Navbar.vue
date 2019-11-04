@@ -19,9 +19,11 @@
           <v-avatar size="100" tile>
             <img :src="userPhoto" alt="Profile Photo" />
           </v-avatar>
-          <p style="text-align:center; margin-top:10px;" class="display-1 grey--text font-weight-bold">Twister</p>
+          <p style="text-align:center; margin-top:10px;font-family: 'Calibri'; font-size:35px;letter-spacing:2px;" class="grey--text font-weight-bold">Twister</p>
         </v-flex>
       </v-layout>
+
+      <v-divider></v-divider>
 
       <v-list>
         <v-list-tile v-for="link in links" v-bind:key="link.text" router v-bind:to="link.route">
@@ -73,8 +75,8 @@ export default {
       links: [
         { icon: "home", text: "Home", route: "/" },
         { icon: "info", text: "About", route: "/about" },
-        // { icon: "feedback", text: "Feedback", route: "/feedback" },
-        { icon: "assignment", text: "Privacy Policy", route: "/privacypolicy" },
+        { icon: "bookmark", text: "Bookmarks", route: "/bookmarks" },
+        // { icon: "assignment", text: "Privacy Policy", route: "/privacypolicy" },
         // { icon: "settings", text: "Settings", route: "/settings" }
       ],
       languages: [

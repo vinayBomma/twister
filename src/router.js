@@ -17,6 +17,11 @@ export default new Router({
       component: () => import('./views/About.vue')
     },
     {
+      path: '/bookmarks',
+      name: 'bookmarks',
+      component: () => import('./views/Bookmark.vue')
+    },
+    {
       path: '/privacypolicy',
       name: 'PrivacyPolicy',
       component: () => import('./views/privacypolicy.vue')

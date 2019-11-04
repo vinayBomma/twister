@@ -1,5 +1,10 @@
-toolbar ui redesign
-subheading lang.vue capital this.route.name
 bookmark twists 
-report twists
-more langs
+
+create report doc
+create array with [lang, twist, ftext]
+and manually check the db time to time
+
+
+and about bookmark idk, need to create indexdb
+store bookmarks in them and show them in bookmark page
+you could also check if a twist is in db, and remove the bookmark icon if it is

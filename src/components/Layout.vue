@@ -1,7 +1,6 @@
 <template>
   <section>
     <v-container>
-      <!-- <h1 class="subheading white--text">{{ ($route.name).toUpperCase() }}</h1> -->
       <v-layout row wrap>
         <v-flex xs12 sm6 md4 pa-3 v-for="(i, j) in contents" v-bind:key="j">
           <v-card :style="cardColor[j]">
@@ -9,10 +8,10 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn icon>
-                <v-icon>bookmark</v-icon>
+                <v-icon v-on:click="bookmark(i)">bookmark</v-icon>
               </v-btn>
               <v-btn icon>
-                <v-icon>report</v-icon>
+                <v-icon v-on:click="report(i)">report</v-icon>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -36,11 +35,33 @@
         </v-layout>
       </v-card>
     </v-dialog>
+
+    <v-dialog v-model="reportDialog" persistent full-width>
+      <v-card>
+        <v-card-title class="headline">Report Twist</v-card-title>
+        <v-card-text>
+          <v-textarea outline auto-grow label="What's Wrong?" v-model="reportText"></v-textarea>
+        </v-card-text>
+        <v-card-actions>
+          <v-layout row justify-end mb-3>
+            <v-btn round v-on:click="reportDialog = false">Cancel</v-btn>
+            <v-btn round color="cyan darken-2" v-on:click="submitReport">Submit</v-btn>
+          </v-layout>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-snackbar v-model="snackbar" :timeout="timeout" multi-line bottom :color="color">
+      {{ msg }}
+      <v-btn flat @click="snackbar === false">Close</v-btn>
+    </v-snackbar>
   </section>
 </template>
 
 <script>
 import { db } from "../firebase/init";
+// import {openDb} from 'idb';
+import idb from '../firebase/idb'
 
 import "epic-spinners/dist/lib/epic-spinners.min.css";
 import FingerprintSpinner from "epic-spinners/src/components/lib/FingerprintSpinner";
@@ -66,10 +87,45 @@ export default {
       cardColor: [],
       domData: false,
       loading: false,
-      style: "opacity: 1"
+      reportDialog: false,
+      style: "opacity: 1",
+      snackbar: false,
+      msg: null,
+      timeout: 3000,
+      color: undefined,
+      reportText: null,
+      reportedTwist: null
     };
   },
   methods: {
+    async bookmark(twist) {
+      
+      // const indexDb = openDb('twisterData', 1, upgradeDB => {
+      //   upgradeDB.createObjectStore('todos', {keypath: 'id'});
+      // })
+      await idb.getDb();
+      await idb.bookmark(twist);
+
+      this.msg = "Twist Bookmarked!";
+      this.color = "green darken-1";
+      this.snackbar = true;
+    },
+    report(twist) {
+      this.reportDialog = true;
+      this.reportedTwist = twist;
+    },
+    submitReport() {
+      if (this.reportText) {
+        this.msg = "Thank you for your feedback!";
+        this.color = "grey darken-2";
+        this.snackbar = true;
+        this.reportDialog = false;
+        console.log("Feedback Text: ", this.reportText);
+        this.reportText = null;
+
+        console.log("Report: ", this.reportedTwist);
+      }
+    },
     randomColor() {
       this.cardColor.push(
         this.colors[Math.floor(Math.random() * this.colors.length)]

@@ -7,6 +7,7 @@
             "namespace": "android_app",
             "package_name": "com.chromium.twa.twisterio",
             "sha256_cert_fingerprints": [
+                "31:02:EC:31:68:A9:CB:69:A6:8C:3F:3C:96:68:F4:D8:19:DB:F6:C4:F3:D2:07:99:36:73:98:A7:8E:DD:E3:0A",
                 "CD:D0:6B:80:ED:AF:13:96:E9:2B:F6:8E:A4:80:06:CD:BE:4D:3B:96:DB:E5:74:2B:C6:EF:23:B2:BC:2E:28:4C"  
             ]
         }
