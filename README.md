@@ -1,4 +1,7 @@
-# twister
+# Twister
+
+[Play Store](https://play.google.com/store/apps/details?id=com.chromium.twa.twisterio)
+[Web App](https://twisterio.web.app)
 
 ## Project setup
 ```
